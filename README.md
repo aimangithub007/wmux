@@ -28,6 +28,46 @@ Window
 
 ---
 
+## Install Cepat
+
+Download versi terbaru dari GitHub Release:
+
+📦 Release v1.0.0
+
+[WMUX v1.0.0 Release](https://github.com/aimangithub007/wmux/releases/tag/v1.0.0?utm_source=chatgpt.com)
+
+### Debian / Ubuntu (.deb)
+
+```bash
+wget https://github.com/aimangithub007/wmux/releases/download/v1.0.0/wmux_1.0.0.deb
+
+sudo apt install ./wmux_1.0.0.deb
+```
+
+### Universal Linux (AppImage)
+
+```bash
+wget https://github.com/aimangithub007/wmux/releases/download/v1.0.0/wmux_1.0.0_amd64.AppImage
+
+chmod +x wmux_1.0.0_amd64.AppImage
+
+./wmux_1.0.0_amd64.AppImage
+```
+
+### Verify Download (Optional)
+
+```bash
+sha256sum wmux_1.0.0.deb
+# d9276b18e5d06af39f75f2eb22a12be9c34be0e4ba9cdef8725c69376e040f23
+
+sha256sum wmux_1.0.0_amd64.AppImage
+# 9d8c6561c3f8d455e0450bbb6c5856a706d6985786885f02ac7e89c56e1f5fc0
+```
+
+> AppImage cocok jika ingin menjalankan WMUX tanpa instalasi sistem.
+
+---
+
 ## Instalasi
 
 > **Panduan lengkap step-by-step (dari nol) ada di [`INSTALL.md`](./INSTALL.md)**
