@@ -1,0 +1,170 @@
+/* ─── Reset & base ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+/* ─── CSS Variables — Dark theme (default) ───────────────────────── */
+:root {
+  --color-background-primary:   #0d1117;
+  --color-background-secondary: #161b22;
+  --color-background-tertiary:  #21262d;
+  --color-background-info:      #1f3a5c;
+  --color-background-error:     #2d1010;
+
+  --color-border-primary:   #30363d;
+  --color-border-secondary: #21262d;
+  --color-border-tertiary:  #161b22;
+  --color-border-info:      #58a6ff;
+  --color-border-error:     #5a1a1a;
+
+  --color-text-primary:   #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-tertiary:  #484f58;
+  --color-text-info:      #58a6ff;
+  --color-text-error:     #ff7b72;
+
+  --color-accent: #58a6ff;
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-error:   #ff7b72;
+  --color-attention: #58a6ff;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  color: var(--color-text-primary);
+  background: var(--color-background-primary);
+}
+
+/* ─── Light theme override ───────────────────────────────────────── */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --color-background-primary:   #ffffff;
+    --color-background-secondary: #f6f8fa;
+    --color-background-tertiary:  #eaeef2;
+    --color-background-info:      #dbeafe;
+    --color-background-error:     #fee2e2;
+
+    --color-border-primary:   #d0d7de;
+    --color-border-secondary: #d8dee4;
+    --color-border-tertiary:  #eaeef2;
+    --color-border-info:      #2563eb;
+    --color-border-error:     #ef4444;
+
+    --color-text-primary:   #1f2328;
+    --color-text-secondary: #57606a;
+    --color-text-tertiary:  #8c959f;
+    --color-text-info:      #2563eb;
+    --color-text-error:     #d1242f;
+
+    --color-accent: #0969da;
+    --color-success: #1a7f37;
+    --color-warning: #9a6700;
+    --color-error:   #d1242f;
+    --color-attention: #0969da;
+  }
+}
+
+/* ─── Dark theme override (manual) ──────────────────────────────── */
+[data-theme="dark"] {
+  --color-background-primary:   #0d1117;
+  --color-background-secondary: #161b22;
+  --color-background-tertiary:  #21262d;
+  --color-background-info:      #1f3a5c;
+  --color-background-error:     #2d1010;
+
+  --color-border-primary:   #30363d;
+  --color-border-secondary: #21262d;
+  --color-border-tertiary:  #161b22;
+  --color-border-info:      #58a6ff;
+  --color-border-error:     #5a1a1a;
+
+  --color-text-primary:   #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-tertiary:  #484f58;
+  --color-text-info:      #58a6ff;
+  --color-text-error:     #ff7b72;
+
+  --color-accent: #58a6ff;
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-error:   #ff7b72;
+  --color-attention: #58a6ff;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border-primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-tertiary); }
+
+/* ─── react-mosaic overrides ─────────────────────────────────────── */
+.mosaic-root, .mosaic { height: 100%; }
+.mosaic-split { background: #1e2329 !important; }
+.mosaic-split:hover { background: #3d4450 !important; }
+.mosaic-split.-row { width: 3px !important; cursor: col-resize !important; }
+.mosaic-split.-column { height: 3px !important; cursor: row-resize !important; }
+.mosaic-window { background: var(--color-background-primary); border: none !important; box-shadow: none !important; outline: none !important; }
+.mosaic-window.mosaic-window-focused { border: none !important; box-shadow: none !important; outline: none !important; }
+.mosaic-window-body { border: none !important; }
+.mosaic-window-toolbar { display: none !important; }
+.mosaic-window-body { height: 100% !important; overflow: hidden; }
+.mosaic-drop-target { background: transparent !important; border: none !important; }
+.mosaic-preview { background: var(--color-background-secondary); }
+
+/* ─── Split animation ────────────────────────────────────────────── */
+.mosaic-window {
+  animation: pane-appear 0.15s ease;
+}
+@keyframes pane-appear {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── Browser progress bar ───────────────────────────────────────── */
+@keyframes browser-progress {
+  0%   { transform: scaleX(0.05) translateX(0); transform-origin: left; }
+  50%  { transform: scaleX(0.5) translateX(80%); transform-origin: left; }
+  100% { transform: scaleX(0.05) translateX(2000%); transform-origin: left; }
+}
+
+/* ─── Toast animation ────────────────────────────────────────────── */
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Splash dots ────────────────────────────────────────────────── */
+@keyframes splash-dot {
+  0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+  40%           { opacity: 1;   transform: scale(1.2); }
+}
+
+/* ─── Tab glow pulse ─────────────────────────────────────────────── */
+@keyframes tab-glow-pulse {
+  0%, 100% { box-shadow: 0 0 4px #58a6ff40; }
+  50%       { box-shadow: 0 0 10px #58a6ff80; }
+}
+
+/* ─── Markdown preview typography ───────────────────────────────── */
+.md-preview { color: var(--color-text-secondary); line-height: 1.7; }
+.md-preview h1, .md-preview h2, .md-preview h3, .md-preview h4 {
+  color: var(--color-text-primary); margin: 1.2em 0 0.4em;
+  border-bottom: 1px solid var(--color-border-secondary); padding-bottom: 0.3em;
+}
+.md-preview code {
+  background: var(--color-background-secondary);
+  padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em;
+  color: #79c0ff; font-family: monospace;
+}
+.md-preview pre { background: var(--color-background-secondary); border-radius: 6px; padding: 14px; overflow-x: auto; }
+.md-preview pre code { background: none; padding: 0; }
+.md-preview a { color: var(--color-accent); }
+.md-preview blockquote { border-left: 3px solid var(--color-border-primary); margin: 0; padding-left: 16px; color: var(--color-text-tertiary); }
+.md-preview hr { border: none; border-top: 1px solid var(--color-border-secondary); margin: 1.5em 0; }

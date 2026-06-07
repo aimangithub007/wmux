@@ -1,0 +1,11 @@
+{
+  "apps": [
+    { "id": "terminal",  "name": "Terminal",  "type": "terminal", "path": "",                   "icon": "ti-terminal-2",  "default": true },
+    { "id": "browser",   "name": "Browser",   "type": "browser",  "path": "",                   "icon": "ti-world" },
+    { "id": "editor",    "name": "Editor",    "type": "editor",   "path": "",                   "icon": "ti-code" },
+    { "id": "nvim",      "name": "Neovim",    "type": "terminal", "path": "/usr/bin/nvim",      "icon": "ti-terminal" },
+    { "id": "lazygit",   "name": "Lazygit",   "type": "terminal", "path": "/usr/bin/lazygit",   "icon": "ti-git-branch" },
+    { "id": "btop",      "name": "Btop",      "type": "terminal", "path": "/usr/bin/btop",      "icon": "ti-cpu" },
+    { "id": "figma",     "name": "Figma",     "type": "browser",  "path": "https://figma.com",  "icon": "ti-brand-figma" }
+  ]
+}
