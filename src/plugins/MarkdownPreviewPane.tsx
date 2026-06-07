@@ -85,6 +85,7 @@ function MarkdownPreviewComponent({ tabId, notify }: PaneProps) {
       {/* Content */}
       {mode === "preview" ? (
         <div
+          className="md-preview"
           style={{ flex: 1, overflow: "auto", padding: "20px 28px" }}
           dangerouslySetInnerHTML={{ __html: rendered }}
         />

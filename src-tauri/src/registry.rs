@@ -92,6 +92,24 @@ fn default_apps() -> Vec<AppEntry> {
             icon: Some("ti-brand-figma".into()),
             default: None,
         },
+        AppEntry {
+            id: "markdown-preview".into(),
+            name: "Markdown Preview".into(),
+            app_type: "plugin".into(),
+            path: Some(String::new()),
+            args: None,
+            icon: Some("ti-markdown".into()),
+            default: None,
+        },
+        AppEntry {
+            id: "image-viewer".into(),
+            name: "Image Viewer".into(),
+            app_type: "plugin".into(),
+            path: Some(String::new()),
+            args: None,
+            icon: Some("ti-photo".into()),
+            default: None,
+        },
     ]
 }
 
@@ -123,7 +141,22 @@ pub fn load_apps() -> Result<Vec<AppEntry>> {
         return Ok(defaults);
     }
     let content = std::fs::read_to_string(&path)?;
-    let config: AppsConfig = serde_json::from_str(&content)?;
+    let mut config: AppsConfig = serde_json::from_str(&content)?;
+
+    // Merge any new default entries not yet in user's file
+    let existing_ids: std::collections::HashSet<String> =
+        config.apps.iter().map(|a| a.id.clone()).collect();
+    let mut changed = false;
+    for default in default_apps() {
+        if !existing_ids.contains(&default.id) {
+            config.apps.push(default);
+            changed = true;
+        }
+    }
+    if changed {
+        save_apps(&config.apps)?;
+    }
+
     Ok(config.apps)
 }
 

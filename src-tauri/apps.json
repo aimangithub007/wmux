@@ -6,6 +6,8 @@
     { "id": "nvim",      "name": "Neovim",    "type": "terminal", "path": "/usr/bin/nvim",      "icon": "ti-terminal" },
     { "id": "lazygit",   "name": "Lazygit",   "type": "terminal", "path": "/usr/bin/lazygit",   "icon": "ti-git-branch" },
     { "id": "btop",      "name": "Btop",      "type": "terminal", "path": "/usr/bin/btop",      "icon": "ti-cpu" },
-    { "id": "figma",     "name": "Figma",     "type": "browser",  "path": "https://figma.com",  "icon": "ti-brand-figma" }
+    { "id": "figma",            "name": "Figma",            "type": "browser",  "path": "https://figma.com",  "icon": "ti-brand-figma" },
+    { "id": "markdown-preview", "name": "Markdown Preview", "type": "plugin",   "path": "",                   "icon": "ti-markdown" },
+    { "id": "image-viewer",     "name": "Image Viewer",     "type": "plugin",   "path": "",                   "icon": "ti-photo" }
   ]
 }

@@ -29,10 +29,16 @@
     "core:webview:allow-set-webview-size",
     "notification:default",
     "dialog:default",
+    "dialog:allow-open",
+    "dialog:allow-save",
     "fs:default",
     "fs:allow-read-text-file",
     "fs:allow-write-text-file",
     "fs:allow-exists",
-    "fs:scope-home-recursive"
+    "fs:scope-home-recursive",
+    "fs:scope-appdata-recursive",
+    "fs:scope-download-recursive",
+    "fs:scope-document-recursive",
+    "fs:scope-desktop-recursive"
   ]
 }

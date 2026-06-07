@@ -1,7 +1,5 @@
 # Tiled Workspace
 
-![wmux screenshot](wmux.png)
-
 Cross-platform tiling desktop workspace — Tauri 2 + React + TypeScript.
 Split panes bebas, terminal, browser, editor, dan plugin dalam satu window.
 
